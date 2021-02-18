@@ -21,6 +21,8 @@ class ReviewTableViewCell: UITableViewCell {
     }
     
     func configureReviews(model: Review) {
+        reviewerUserName.text = model.authorDetails.userName
+        review.text = model.content
         switch Int(model.authorDetails.rating ?? 0) {
         case 8...10:
             reviewRate.text = "⭐️⭐️⭐️⭐️⭐️"
@@ -35,9 +37,6 @@ class ReviewTableViewCell: UITableViewCell {
         default:
             reviewRate.text = "No rate given"
         }
-        
-        reviewerUserName.text = model.authorDetails.userName
-        review.text = model.content
     }
 }
 

@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieOverview: UITextView!
-    @IBOutlet var movieVote: UILabel!
+    @IBOutlet var movieRate: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var trailerAndReviewButton: UIButton!
     @IBOutlet var releaseDate: UILabel!
@@ -38,6 +38,7 @@ class DetailViewController: UIViewController {
         castCollectionViewHeightConstraint.constant = 0
         embeddedVCHeight.constant = 0
         scrollHeight.constant = 665
+        getCurvyButton(trailerAndReviewButton)
     }
 }
 
@@ -46,13 +47,37 @@ extension DetailViewController {
     func updatingOutlets() {
         movieTitle.text = self.selectedMovie.title
         movieOverview.text = self.selectedMovie.overview
-        movieVote.text = String(self.selectedMovie.rate)
         movieImage.fetchImage(from: selectedMovie.backdropURL.absoluteString)
         releaseDate.text = self.selectedMovie.releaseDate
+        let rate = selectedMovie.rate
+        switch Int(rate) {
+        case 8...10:
+            movieRate.text = "\(String(rate)) ⭐️⭐️⭐️⭐️⭐️"
+        case 6...8:
+            movieRate.text = "\(String(rate)) ⭐️⭐️⭐️⭐️"
+        case 4...6:
+            movieRate.text = "\(String(rate)) ⭐️⭐️⭐️"
+        case 2...4:
+            movieRate.text = "\(String(rate)) ⭐️⭐️"
+        case 1...2:
+            movieRate.text = "\(String(rate)) ⭐️"
+        default:
+            movieRate.text = "No rate given"
+        }
     }
 }
 
-//MARK: - Scrollable Button
+//MARK: - Embedding ExtraDetailVC to DetailVC part
+extension DetailViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToExtraDetailVC" {
+            let destinationVC = segue.destination as! ExtraDetailViewController
+            destinationVC.selectedMovieDetail = selectedMovie
+        }
+    }
+}
+
+//MARK: - Scrollable Trailer and Review Button
 extension DetailViewController {
     @IBAction func trailerAndReviewButtonTapped(_ sender: UIButton) {
         if embeddedVCHeight.constant == 0 {
@@ -101,5 +126,11 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let url = "\(getURL(on: .castTMDBPage))\(selectedCastID ?? 12345)"
         let vc = SFSafariViewController(url: URL(string: url)!)
         present(vc, animated: true)
+    }
+}
+//MARK: - Button with curves and shadows
+extension DetailViewController {
+    func getCurvyButton(_ button: UIButton) {
+        button.layer.cornerRadius = button.frame.size.height / 2
     }
 }

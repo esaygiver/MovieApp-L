@@ -26,6 +26,8 @@
 		8449FF0125DE89B40061168D /* ExtraDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FF0025DE89B40061168D /* ExtraDetailViewController.swift */; };
 		8449FF0325DE8C760061168D /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FF0225DE8C760061168D /* CastCollectionViewCell.swift */; };
 		8449FF0625DE916B0061168D /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FF0525DE916B0061168D /* ReviewTableViewCell.swift */; };
+		8449FF0925DEAD460061168D /* PreLoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FF0825DEAD460061168D /* PreLoadScreenViewController.swift */; };
+		8449FF0B25DEADBC0061168D /* PreDataLoad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8449FF0A25DEADBC0061168D /* PreDataLoad.storyboard */; };
 		94295D144A1E0FE8123E0F8A /* Pods_Loodos_MovieApp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ADF9EB41B8D0D8A0A72CE6 /* Pods_Loodos_MovieApp_.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		8449FF0025DE89B40061168D /* ExtraDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraDetailViewController.swift; sourceTree = "<group>"; };
 		8449FF0225DE8C760061168D /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		8449FF0525DE916B0061168D /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		8449FF0825DEAD460061168D /* PreLoadScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoadScreenViewController.swift; sourceTree = "<group>"; };
+		8449FF0A25DEADBC0061168D /* PreDataLoad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreDataLoad.storyboard; sourceTree = "<group>"; };
 		DB7E56095D26DC0294E7D48B /* Pods-Loodos(MovieApp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos(MovieApp).debug.xcconfig"; path = "Target Support Files/Pods-Loodos(MovieApp)/Pods-Loodos(MovieApp).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,9 +107,10 @@
 				8449FEFC25DE81230061168D /* Extension */,
 				8449FEFD25DE89630061168D /* Search ViewController */,
 				8449FED825DE3F000061168D /* Main.storyboard */,
+				8449FF0A25DEADBC0061168D /* PreDataLoad.storyboard */,
+				8449FF0825DEAD460061168D /* PreLoadScreenViewController.swift */,
 				8449FF0425DE8D9C0061168D /* Detail ViewController */,
-				8449FF0025DE89B40061168D /* ExtraDetailViewController.swift */,
-				8449FF0525DE916B0061168D /* ReviewTableViewCell.swift */,
+				8449FF0725DE95680061168D /* ExtraDetail ViewController */,
 				8449FEDB25DE3F080061168D /* Assets.xcassets */,
 				8449FEDD25DE3F080061168D /* LaunchScreen.storyboard */,
 				8449FEE025DE3F080061168D /* Info.plist */,
@@ -160,6 +165,15 @@
 				8449FF0225DE8C760061168D /* CastCollectionViewCell.swift */,
 			);
 			path = "Detail ViewController";
+			sourceTree = "<group>";
+		};
+		8449FF0725DE95680061168D /* ExtraDetail ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8449FF0025DE89B40061168D /* ExtraDetailViewController.swift */,
+				8449FF0525DE916B0061168D /* ReviewTableViewCell.swift */,
+			);
+			path = "ExtraDetail ViewController";
 			sourceTree = "<group>";
 		};
 		B35842A45C9CA0261F2388EB /* Frameworks */ = {
@@ -232,6 +246,7 @@
 			files = (
 				8449FEDF25DE3F080061168D /* LaunchScreen.storyboard in Resources */,
 				8449FEDC25DE3F080061168D /* Assets.xcassets in Resources */,
+				8449FF0B25DEADBC0061168D /* PreDataLoad.storyboard in Resources */,
 				8449FEDA25DE3F000061168D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +307,7 @@
 				8449FEF925DE7EB80061168D /* SearchCollectionViewCell.swift in Sources */,
 				8449FED725DE3F000061168D /* SearchViewController.swift in Sources */,
 				8449FED325DE3F000061168D /* AppDelegate.swift in Sources */,
+				8449FF0925DEAD460061168D /* PreLoadScreenViewController.swift in Sources */,
 				8449FEF425DE52040061168D /* Video.swift in Sources */,
 				8449FEF625DE52340061168D /* Review.swift in Sources */,
 				8449FF0625DE916B0061168D /* ReviewTableViewCell.swift in Sources */,
