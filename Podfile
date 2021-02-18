@@ -11,5 +11,6 @@ pod 'Firebase/Database'
 pod 'Moya', '~> 14.0'
 pod 'RealmSwift'
 pod "Connectivity"
+pod 'Kingfisher', '~> 6.0'
 
 end

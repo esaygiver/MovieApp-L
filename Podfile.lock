@@ -62,6 +62,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
+  - Kingfisher (6.0.1)
   - leveldb-library (1.22)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - Connectivity
   - Firebase/Core
   - Firebase/Database
+  - Kingfisher (~> 6.0)
   - Moya (~> 14.0)
   - RealmSwift
 
@@ -99,6 +101,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - Kingfisher
     - leveldb-library
     - Moya
     - nanopb
@@ -118,6 +121,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  Kingfisher: adde87a4f74f6a3845395769354efff593581740
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
@@ -125,6 +129,6 @@ SPEC CHECKSUMS:
   Realm: 031fdd4be7094d01b43af1a5e49766ab644bb800
   RealmSwift: 43cf2e114baa9d17d34eb81e7d0def31f21cd444
 
-PODFILE CHECKSUM: 54a37e818c6e7e0add1402223f7d40857c8f7666
+PODFILE CHECKSUM: 0517b10fe6dac3cc5407025c66b8573c90e0ef7c
 
 COCOAPODS: 1.10.0

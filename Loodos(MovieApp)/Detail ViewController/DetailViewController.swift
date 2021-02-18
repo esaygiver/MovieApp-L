@@ -1,0 +1,105 @@
+//
+//  DetailViewController.swift
+//  Loodos(MovieApp)
+//
+//  Created by admin on 18.02.2021.
+//  Copyright © 2021 esaygiver. All rights reserved.
+//
+
+import UIKit
+import Moya
+import SafariServices
+
+class DetailViewController: UIViewController {
+
+    //MARK: - IBOutlets
+    @IBOutlet var movieImage: UIImageView!
+    @IBOutlet var movieTitle: UILabel!
+    @IBOutlet var movieOverview: UITextView!
+    @IBOutlet var movieVote: UILabel!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var trailerAndReviewButton: UIButton!
+    @IBOutlet var releaseDate: UILabel!
+    @IBOutlet weak var castCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var embeddedVCHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollHeight: NSLayoutConstraint!
+    
+    private var cast = [Cast]()
+    var selectedMovie: Movie!
+    var networkManager = NetworkManager()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        updatingOutlets()
+        getCast()
+        castCollectionViewHeightConstraint.constant = 0
+        embeddedVCHeight.constant = 0
+        scrollHeight.constant = 665
+    }
+}
+
+//MARK: - Updating Outlets
+extension DetailViewController {
+    func updatingOutlets() {
+        movieTitle.text = self.selectedMovie.title
+        movieOverview.text = self.selectedMovie.overview
+        movieVote.text = String(self.selectedMovie.rate)
+        movieImage.fetchImage(from: selectedMovie.backdropURL.absoluteString)
+        releaseDate.text = self.selectedMovie.releaseDate
+    }
+}
+
+//MARK: - Scrollable Button
+extension DetailViewController {
+    @IBAction func trailerAndReviewButtonTapped(_ sender: UIButton) {
+        if embeddedVCHeight.constant == 0 {
+            scrollHeight.constant = 1300
+            embeddedVCHeight.constant = 635
+        } else {
+            embeddedVCHeight.constant = 0
+            scrollHeight.constant = 665
+        }
+    }
+}
+//MARK: - Network Request
+extension DetailViewController {
+    func getCast() {
+        networkManager.fetchCast(movieID: self.selectedMovie.id ?? 399566) { [weak self] casts in
+            self?.cast = casts
+            DispatchQueue.main.async {
+                self?.castCollectionViewHeightConstraint.constant = 170
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+}
+
+//MARK: - CollectionView Delegate and DataSource
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cast.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "castCell", for: indexPath) as! CastCollectionViewCell
+        let myCell = cast[indexPath.row]
+        cell.configureCast(model: myCell)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let selectedCastID = cast[indexPath.row].id
+        let url = "\(getURL(on: .castTMDBPage))\(selectedCastID ?? 12345)"
+        let vc = SFSafariViewController(url: URL(string: url)!)
+        present(vc, animated: true)
+    }
+}
