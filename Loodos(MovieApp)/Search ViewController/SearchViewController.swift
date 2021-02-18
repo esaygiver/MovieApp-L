@@ -8,31 +8,85 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+enum SearchListState {
+    case loading, loaded, empty
+}
 
+
+class SearchViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet weak var movieListActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var emptyStateView: UIView!
     
     var movies = [Movie]()
+    var popularMovies = [Movie]()
     var networkManager = NetworkManager()
+    
+    var screenState: SearchListState? {
+        didSet {
+            if screenState == .loading {
+                emptyStateView.isHidden = true
+                movieListActivityIndicator.isHidden = false
+                movieListActivityIndicator.startAnimating()
+                collectionView.isHidden = true
+            } else if screenState == .loaded {
+                emptyStateView.isHidden = true
+                movieListActivityIndicator.isHidden = true
+                movieListActivityIndicator.stopAnimating()
+                collectionView.isHidden = false
+            } else {
+                emptyStateView.isHidden = false
+                movieListActivityIndicator.isHidden = true
+                movieListActivityIndicator.stopAnimating()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupDelegations()
+        fetchPopularMovies()
+    }
+    
+    func setupDelegations() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
-        
     }
 }
 
 //MARK: - Network Request
 extension SearchViewController {
     func fetchMovies(query: String) {
+        self.screenState = .loading
         networkManager.searchMovies(query: query) { [weak self] (results) in
-            self?.movies = results
+            if results.isEmpty {
+                self?.screenState = .empty
+            } else {
+                self?.movies = results
+                self?.screenState = .loaded
+            }
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
+    func fetchPopularMovies() {
+        self.screenState = .loading
+        networkManager.fetchPopularMovies { [weak self] (results) in
+            if results.isEmpty {
+                self?.screenState = .empty
+            } else {
+                self?.movies = results
+                self?.popularMovies = results
+                self?.screenState = .loaded
+            }
+            
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
             }
@@ -47,7 +101,9 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.movies = []
+        self.movies = popularMovies
+        self.screenState = movies.isEmpty ? .empty : .loaded
+        searchBar.endEditing(true)
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -58,7 +114,8 @@ extension SearchViewController: UISearchBarDelegate {
         if !query.isEmpty {
             fetchMovies(query: query)
         } else {
-            self.movies = []
+            self.movies = popularMovies
+            self.screenState = movies.isEmpty ? .empty : .loaded
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -85,5 +142,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
         detailViewController.selectedMovie = selectedMovieInSearchVC
         self.show(detailViewController, sender: self)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
     }
 }

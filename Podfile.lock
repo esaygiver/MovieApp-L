@@ -1,6 +1,8 @@
 PODS:
   - Alamofire (5.4.0)
   - Connectivity (5.0.0)
+  - Firebase/Analytics (6.34.0):
+    - Firebase/Core
   - Firebase/Core (6.34.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.9.0)
@@ -82,6 +84,7 @@ PODS:
 
 DEPENDENCIES:
   - Connectivity
+  - Firebase/Analytics
   - Firebase/Core
   - Firebase/Database
   - Kingfisher (~> 6.0)
@@ -129,6 +132,6 @@ SPEC CHECKSUMS:
   Realm: 031fdd4be7094d01b43af1a5e49766ab644bb800
   RealmSwift: 43cf2e114baa9d17d34eb81e7d0def31f21cd444
 
-PODFILE CHECKSUM: 0517b10fe6dac3cc5407025c66b8573c90e0ef7c
+PODFILE CHECKSUM: c49d896954f92fa2ea7ed153fe2113f4acef27e7
 
 COCOAPODS: 1.10.0

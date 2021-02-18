@@ -9,6 +9,7 @@
 import UIKit
 import Moya
 import SafariServices
+import FirebaseAnalytics
 
 class DetailViewController: UIViewController {
 
@@ -30,15 +31,30 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        setupDelegation()
         updatingOutlets()
         getCast()
+        setupUI()
+        logMovieScreenViewEntry()
+    }
+    
+    func setupUI() {
         castCollectionViewHeightConstraint.constant = 0
         embeddedVCHeight.constant = 0
         scrollHeight.constant = 665
         getCurvyButton(trailerAndReviewButton)
+    }
+    
+    func setupDelegation() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    func logMovieScreenViewEntry() {
+        Analytics.logEvent("opened_movie_detail_screen", parameters: [
+            "movie_id": "id-\(selectedMovie.id!)",
+            "movie_title": selectedMovie.title,
+        ])
     }
 }
 

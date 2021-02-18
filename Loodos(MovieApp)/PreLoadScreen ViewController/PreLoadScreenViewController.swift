@@ -8,6 +8,7 @@
 
 import UIKit
 import Connectivity
+import FirebaseDatabase
 
 class PreLoadScreenViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class PreLoadScreenViewController: UIViewController {
     @IBOutlet weak var companyNameLabel: UILabel!
     
     let connectivity = Connectivity()
+    let ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ class PreLoadScreenViewController: UIViewController {
             case .connected,
                  .connectedViaCellular,
                  .connectedViaWiFi:
-                self.goToMainPage()
+                self.showCompanyName()
             case .determining:
                 break
             }
@@ -54,34 +56,24 @@ class PreLoadScreenViewController: UIViewController {
         let okAction = UIAlertAction(title: "Retry", style: alertActionStyle) { _ in
             completionHandler()
         }
-        
-        //        let closeAction = UIAlertAction(title: "Close App", style: .destructive) { _ in
-        //            // DO IT LATER!
-        //            var a: String?
-        //            print(a!.count)
-        //        }
-        
         alert.addAction(okAction)
-        //        alert.addAction(closeAction)
-        
         present(alert, animated: true, completion: nil)
     }
     
     func goToMainPage() {
-        showCompanyName()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
             self.changeRootViewController()
         })
     }
     
     func showCompanyName() {
-        loadingActivityIndicator.isHidden = true
-        //            ref.child("companyTitle").observeSingleEvent(of: .value) { (snapshot) in
-        //                let companyTitle = snapshot.value as? String
-        //                self.companyNameLabel.text = companyTitle
-        //            }
-        companyNameLabel.text = "Esay"
-        companyNameLabel.isHidden = false
+        ref.child("companyTitle").observeSingleEvent(of: .value) { (snapshot) in
+            let companyTitle = snapshot.value as? String
+            self.companyNameLabel.text = companyTitle
+            self.companyNameLabel.isHidden = false
+            self.loadingActivityIndicator.isHidden = true
+            self.goToMainPage()
+        }
     }
     
     func changeRootViewController() {
