@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,13 @@
 		8449FEDA25DE3F000061168D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8449FED825DE3F000061168D /* Main.storyboard */; };
 		8449FEDC25DE3F080061168D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8449FEDB25DE3F080061168D /* Assets.xcassets */; };
 		8449FEDF25DE3F080061168D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8449FEDD25DE3F080061168D /* LaunchScreen.storyboard */; };
+		8449FEE725DE444C0061168D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEE625DE444C0061168D /* API.swift */; };
+		8449FEE925DE461F0061168D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEE825DE461F0061168D /* NetworkManager.swift */; };
+		8449FEED25DE50670061168D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEEC25DE50670061168D /* Keys.swift */; };
+		8449FEF025DE51670061168D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEEF25DE51670061168D /* Movie.swift */; };
+		8449FEF225DE51A90061168D /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEF125DE51A90061168D /* Cast.swift */; };
+		8449FEF425DE52040061168D /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEF325DE52040061168D /* Video.swift */; };
+		8449FEF625DE52340061168D /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449FEF525DE52340061168D /* Review.swift */; };
 		94295D144A1E0FE8123E0F8A /* Pods_Loodos_MovieApp_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ADF9EB41B8D0D8A0A72CE6 /* Pods_Loodos_MovieApp_.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +34,13 @@
 		8449FEDB25DE3F080061168D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8449FEDE25DE3F080061168D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8449FEE025DE3F080061168D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8449FEE625DE444C0061168D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8449FEE825DE461F0061168D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8449FEEC25DE50670061168D /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		8449FEEF25DE51670061168D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		8449FEF125DE51A90061168D /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		8449FEF325DE52040061168D /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		8449FEF525DE52340061168D /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		DB7E56095D26DC0294E7D48B /* Pods-Loodos(MovieApp).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos(MovieApp).debug.xcconfig"; path = "Target Support Files/Pods-Loodos(MovieApp)/Pods-Loodos(MovieApp).debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +62,6 @@
 				DB7E56095D26DC0294E7D48B /* Pods-Loodos(MovieApp).debug.xcconfig */,
 				2C76FA9BABC984CDF5719CC8 /* Pods-Loodos(MovieApp).release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,8 +93,31 @@
 				8449FEDB25DE3F080061168D /* Assets.xcassets */,
 				8449FEDD25DE3F080061168D /* LaunchScreen.storyboard */,
 				8449FEE025DE3F080061168D /* Info.plist */,
+				8449FEF725DE52510061168D /* Model */,
+				8449FEEE25DE511E0061168D /* Network */,
 			);
 			path = "Loodos(MovieApp)";
+			sourceTree = "<group>";
+		};
+		8449FEEE25DE511E0061168D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8449FEEC25DE50670061168D /* Keys.swift */,
+				8449FEE625DE444C0061168D /* API.swift */,
+				8449FEE825DE461F0061168D /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8449FEF725DE52510061168D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8449FEEF25DE51670061168D /* Movie.swift */,
+				8449FEF125DE51A90061168D /* Cast.swift */,
+				8449FEF525DE52340061168D /* Review.swift */,
+				8449FEF325DE52040061168D /* Video.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B35842A45C9CA0261F2388EB /* Frameworks */ = {
@@ -207,8 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8449FEF225DE51A90061168D /* Cast.swift in Sources */,
+				8449FEF025DE51670061168D /* Movie.swift in Sources */,
 				8449FED725DE3F000061168D /* ViewController.swift in Sources */,
 				8449FED325DE3F000061168D /* AppDelegate.swift in Sources */,
+				8449FEF425DE52040061168D /* Video.swift in Sources */,
+				8449FEF625DE52340061168D /* Review.swift in Sources */,
+				8449FEE925DE461F0061168D /* NetworkManager.swift in Sources */,
+				8449FEED25DE50670061168D /* Keys.swift in Sources */,
+				8449FEE725DE444C0061168D /* API.swift in Sources */,
 				8449FED525DE3F000061168D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
