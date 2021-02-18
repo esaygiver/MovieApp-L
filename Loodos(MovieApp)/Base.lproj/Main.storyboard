@@ -11,7 +11,7 @@
         <!--MovieApp-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Loodos_MovieApp_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="entryController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Loodos_MovieApp_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -443,10 +443,28 @@
             </objects>
             <point key="canvasLocation" x="2855" y="-9"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="fKe-2F-8TM">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" id="dvh-bY-MxZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pan-HA-aj5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="j5e-AN-SG3" kind="relationship" relationship="viewControllers" id="duf-hL-sSc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erh-5h-wBP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-857" y="76"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="zyR-vW-sOX">
             <objects>
                 <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="j5e-AN-SG3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="SLH-1H-14s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Itf-iP-SE5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
