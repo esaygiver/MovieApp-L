@@ -20,7 +20,6 @@ class NetworkManager {
                     do {
                         let results = try JSONDecoder().decode(DataResults.self, from: response.data)
                         completion(results.movies)
-    //                    print(results.movies.first?.title)
                     } catch let error {
                         dump(error)
                     }

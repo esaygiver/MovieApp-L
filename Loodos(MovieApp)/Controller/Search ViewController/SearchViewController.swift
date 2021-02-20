@@ -145,7 +145,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
     }
     
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        searchBar.endEditing(true)
-//    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
+    }
 }
