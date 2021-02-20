@@ -1,1 +1,2 @@
 # MovieApp-L
+This is 'MovieApp', it shows popular movies at main screen and there is search bar also. I used TMDB Api to develop this application. You can see cast, rate and overview of movies at detail screen. In addition, you can watch trailer and see other reviews and authors' rates at extra detail page. 'Connectivity' framework used for checking internet condition at first. For network request i used 'Moya' and, 'Kingfisher' used for images. Moreover, i used 'Firebase/Analytics' for analytics.
