@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j5e-AN-SG3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,41 +13,41 @@
             <objects>
                 <viewController storyboardIdentifier="entryController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Loodos_MovieApp_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="D1k-Js-DUr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="wqV-iV-W5D"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jbQ-mw-yxz">
-                                <rect key="frame" x="0.0" y="132" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="455-Ab-pXJ">
-                                    <size key="itemSize" width="187.5" height="250"/>
+                                    <size key="itemSize" width="170" height="250"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="17.5" minY="10" maxX="17.5" maxY="10"/>
+                                    <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchMovieCell" id="eO3-QP-JeG" customClass="SearchCollectionViewCell" customModule="Loodos_MovieApp_" customModuleProvider="target">
-                                        <rect key="frame" x="17.5" y="10" width="187.5" height="250"/>
+                                        <rect key="frame" x="15" y="10" width="170" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="L1Z-xL-W6N">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qqd-zX-ctt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="250"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0w-rw-2FC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="250"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIw-1G-auw">
-                                                            <rect key="frame" x="106.5" y="230" width="78" height="17"/>
+                                                            <rect key="frame" x="89" y="230" width="78" height="17"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="0hf-37-mpa"/>
@@ -76,7 +76,7 @@
                                                 <constraint firstItem="qqd-zX-ctt" firstAttribute="top" secondItem="L1Z-xL-W6N" secondAttribute="top" id="wqn-Gh-psQ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="187.5" height="250"/>
+                                        <size key="customSize" width="170" height="250"/>
                                         <connections>
                                             <outlet property="movieImage" destination="qqd-zX-ctt" id="ohI-K7-ouN"/>
                                             <outlet property="movieTitle" destination="LIw-1G-auw" id="ZdQ-KH-hGi"/>
@@ -85,26 +85,26 @@
                                 </cells>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="1rg-DQ-KrK">
-                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ete-W1-fdo"/>
                                     <constraint firstAttribute="height" constant="50" id="nqq-xh-Ui5"/>
                                 </constraints>
                             </activityIndicatorView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJN-zF-ZR8">
-                                <rect key="frame" x="0.0" y="132" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEu-U8-Imr">
-                                        <rect key="frame" x="0.0" y="303" width="414" height="86.5"/>
+                                        <rect key="frame" x="0.0" y="210.5" width="375" height="86.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😢" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gw-mx-TOU">
-                                                <rect key="frame" x="181" y="0.0" width="52" height="57.5"/>
+                                                <rect key="frame" x="161.5" y="0.0" width="52" height="57.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Could not find movie you searched" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIc-lu-HlQ">
-                                                <rect key="frame" x="8" y="57.5" width="398" height="29"/>
+                                                <rect key="frame" x="8" y="57.5" width="359" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -169,7 +169,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-kB-LPn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1222"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXl-Y0-mZ7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
@@ -242,7 +242,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW3-dI-hmT">
-                                                <rect key="frame" x="95" y="580" width="224" height="40"/>
+                                                <rect key="frame" x="95" y="570" width="224" height="40"/>
                                                 <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="0.48464255140000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="WAF-a2-qfC"/>
@@ -255,7 +255,7 @@
                                                 </connections>
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdm-dH-UhZ">
-                                                <rect key="frame" x="0.0" y="635" width="414" height="643"/>
+                                                <rect key="frame" x="0.0" y="625" width="414" height="643"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="643" id="10F-yW-dtt"/>
                                                 </constraints>
@@ -298,7 +298,7 @@
                                             <constraint firstAttribute="height" constant="1300" id="KoX-BH-N2N"/>
                                             <constraint firstAttribute="trailing" secondItem="qdm-dH-UhZ" secondAttribute="trailing" id="MAx-Qs-pyN"/>
                                             <constraint firstItem="QRT-iT-ZL1" firstAttribute="top" secondItem="BW4-yM-ZM2" secondAttribute="bottom" id="P8N-Tl-GHb"/>
-                                            <constraint firstItem="MW3-dI-hmT" firstAttribute="top" secondItem="Fhn-pN-fZx" secondAttribute="bottom" constant="20" id="PW2-V0-Dzb"/>
+                                            <constraint firstItem="MW3-dI-hmT" firstAttribute="top" secondItem="Fhn-pN-fZx" secondAttribute="bottom" constant="10" id="PW2-V0-Dzb"/>
                                             <constraint firstItem="LPy-gR-j0M" firstAttribute="leading" secondItem="ZXl-Y0-mZ7" secondAttribute="leading" constant="10" id="WAP-h5-h2z"/>
                                             <constraint firstAttribute="trailing" secondItem="LPy-gR-j0M" secondAttribute="trailing" constant="10" id="XF9-sq-GnW"/>
                                             <constraint firstAttribute="trailing" secondItem="MW3-dI-hmT" secondAttribute="trailing" constant="95" id="Zfl-FD-trh"/>
@@ -403,7 +403,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nn4-5I-8fR">
-                                <rect key="frame" x="0.0" y="314" width="414" height="329"/>
+                                <rect key="frame" x="0.0" y="270" width="414" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReviewCell" id="D3Y-qy-lKp" customClass="ReviewTableViewCell" customModule="Loodos_MovieApp_" customModuleProvider="target">
@@ -465,7 +465,7 @@
                                 <sections/>
                             </tableView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM4-x6-EV6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="jbd-zw-qAh"/>
@@ -503,7 +503,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="SLH-1H-14s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Itf-iP-SE5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -124,6 +124,7 @@ extension SearchViewController: UISearchBarDelegate {
 
 //MARK: - Search CollectionViewCell Delegate & Datasource & FlowLayout
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
