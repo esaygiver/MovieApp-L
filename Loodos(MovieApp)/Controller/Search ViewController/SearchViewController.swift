@@ -39,6 +39,7 @@ class SearchViewController: UIViewController {
                 emptyStateView.isHidden = false
                 movieListActivityIndicator.isHidden = true
                 movieListActivityIndicator.stopAnimating()
+                collectionView.isHidden = true
             }
         }
     }
@@ -95,7 +96,7 @@ extension SearchViewController {
 //MARK: - SearchBar Delegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
+         searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -121,12 +122,12 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-//MARK: - Search CollectionViewCell Delegate&Datasource
-extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//MARK: - Search CollectionViewCell Delegate & Datasource & FlowLayout
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchMovieCell", for: indexPath) as! SearchCollectionViewCell
         let selectedCell = movies[indexPath.row]
@@ -141,10 +142,10 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         detailViewController.selectedMovie = selectedMovieInSearchVC
         detailViewController.modalTransitionStyle = .flipHorizontal
         self.present(detailViewController, animated: true)
-//        self.show(detailViewController, sender: self)
+
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        searchBar.endEditing(true)
-    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        searchBar.endEditing(true)
+//    }
 }

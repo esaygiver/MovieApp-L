@@ -104,20 +104,15 @@
 		8449FED125DE3F000061168D /* Loodos(MovieApp) */ = {
 			isa = PBXGroup;
 			children = (
-				8449FED225DE3F000061168D /* AppDelegate.swift */,
-				8449FED425DE3F000061168D /* SceneDelegate.swift */,
+				84B745D125E1522F00EE7980 /* App&Scene Delegate */,
 				8449FEFC25DE81230061168D /* Extension */,
-				8449FEFD25DE89630061168D /* Search ViewController */,
-				84D1374A25DEC55200022520 /* PreLoadScreen ViewController */,
+				8449FEEE25DE511E0061168D /* Network */,
+				8449FEF725DE52510061168D /* Model */,
+				84B745CF25E1512100EE7980 /* Controller */,
 				84D1374925DEC52A00022520 /* View */,
-				8449FF0425DE8D9C0061168D /* Detail ViewController */,
-				8449FF0725DE95680061168D /* ExtraDetail ViewController */,
-				8449FEDB25DE3F080061168D /* Assets.xcassets */,
-				8449FEDD25DE3F080061168D /* LaunchScreen.storyboard */,
+				84B745D025E1520400EE7980 /* Supporting Files */,
 				8449FEE025DE3F080061168D /* Info.plist */,
 				8449FF0C25DEC16C0061168D /* GoogleService-Info.plist */,
-				8449FEF725DE52510061168D /* Model */,
-				8449FEEE25DE511E0061168D /* Network */,
 			);
 			path = "Loodos(MovieApp)";
 			sourceTree = "<group>";
@@ -176,6 +171,35 @@
 				8449FF0525DE916B0061168D /* ReviewTableViewCell.swift */,
 			);
 			path = "ExtraDetail ViewController";
+			sourceTree = "<group>";
+		};
+		84B745CF25E1512100EE7980 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84D1374A25DEC55200022520 /* PreLoadScreen ViewController */,
+				8449FEFD25DE89630061168D /* Search ViewController */,
+				8449FF0425DE8D9C0061168D /* Detail ViewController */,
+				8449FF0725DE95680061168D /* ExtraDetail ViewController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84B745D025E1520400EE7980 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8449FEDB25DE3F080061168D /* Assets.xcassets */,
+				8449FEDD25DE3F080061168D /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84B745D125E1522F00EE7980 /* App&Scene Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				8449FED225DE3F000061168D /* AppDelegate.swift */,
+				8449FED425DE3F000061168D /* SceneDelegate.swift */,
+			);
+			path = "App&Scene Delegate";
 			sourceTree = "<group>";
 		};
 		84D1374925DEC52A00022520 /* View */ = {

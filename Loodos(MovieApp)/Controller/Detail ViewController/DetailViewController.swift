@@ -131,8 +131,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "castCell", for: indexPath) as! CastCollectionViewCell
-        let myCell = cast[indexPath.row]
-        cell.configureCast(model: myCell)
+        let selectedCell = cast[indexPath.row]
+        cell.configureCast(model: selectedCell)
         return cell
     }
     

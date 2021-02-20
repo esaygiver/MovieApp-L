@@ -68,10 +68,10 @@ class PreLoadScreenViewController: UIViewController {
     
     func showCompanyName() {
         ref.child("companyTitle").observeSingleEvent(of: .value) { (snapshot) in
+            self.loadingActivityIndicator.isHidden = true
             let companyTitle = snapshot.value as? String
             self.companyNameLabel.text = companyTitle
             self.companyNameLabel.isHidden = false
-            self.loadingActivityIndicator.isHidden = true
             self.goToMainPage()
         }
     }
