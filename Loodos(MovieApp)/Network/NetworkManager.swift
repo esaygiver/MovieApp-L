@@ -46,21 +46,6 @@ class NetworkManager {
             }
         }
         
-        func fetchTrendingMovies(completion: @escaping ([Movie]) -> ()) {
-            provider.request(.trends) { result in
-                switch result {
-                case let .success(response):
-                    do {
-                        let results = try JSONDecoder().decode(DataResults.self, from: response.data)
-                        completion(results.movies)
-                    } catch let error {
-                        dump(error)
-                    }
-                case let .failure(error):
-                    dump(error)
-                }
-            }
-        }
         
         func fetchCast(movieID: Int, completion: @escaping ([Cast]) -> ()) {
             provider.request(.cast(movieID: movieID)) { result in
@@ -77,7 +62,6 @@ class NetworkManager {
                 }
             }
         }
-        
         
         public func fetchVideo(movieID: Int, completion: @escaping ([Video]) -> ()) {
             provider.request(.video(movieID: movieID)) { result in

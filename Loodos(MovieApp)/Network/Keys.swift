@@ -10,7 +10,6 @@ import Foundation
 
 enum Keys: String, CaseIterable {
         case popularMoviesURL
-        case trendingMoviesURL
         case imageURL
         case castProfileURL
         case APIKey
@@ -29,8 +28,6 @@ func getURL(on platform: Keys) -> String {
             return "660a71826e07d00e08b7baa0a340d61b"
         case .popularMoviesURL:
             return "\(baseURL)movie/popular?\(apiKey)"
-        case .trendingMoviesURL:
-            return "\(baseURL)trending/movie/day?\(apiKey)"
         case .imageURL:
             return "https://image.tmdb.org/t/p/original"
         case .castProfileURL:

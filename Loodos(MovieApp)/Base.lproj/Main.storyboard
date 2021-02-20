@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="interstellar" translatesAutoresizingMaskIntoConstraints="NO" id="D1k-Js-DUr">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="D1k-Js-DUr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="wqV-iV-W5D"/>
@@ -255,7 +255,7 @@
                                                 </connections>
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdm-dH-UhZ">
-                                                <rect key="frame" x="0.0" y="635" width="414" height="643"/>
+                                                <rect key="frame" x="0.0" y="625" width="414" height="643"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="643" id="10F-yW-dtt"/>
                                                 </constraints>
@@ -304,7 +304,7 @@
                                             <constraint firstAttribute="trailing" secondItem="MW3-dI-hmT" secondAttribute="trailing" constant="95" id="Zfl-FD-trh"/>
                                             <constraint firstItem="Fhn-pN-fZx" firstAttribute="top" secondItem="LPy-gR-j0M" secondAttribute="bottom" id="cgE-dg-QaW"/>
                                             <constraint firstItem="MW3-dI-hmT" firstAttribute="leading" secondItem="ZXl-Y0-mZ7" secondAttribute="leading" constant="95" id="nVy-Pt-Oyh"/>
-                                            <constraint firstItem="qdm-dH-UhZ" firstAttribute="top" secondItem="MW3-dI-hmT" secondAttribute="bottom" constant="25" id="tnd-Rc-GG9"/>
+                                            <constraint firstItem="qdm-dH-UhZ" firstAttribute="top" secondItem="MW3-dI-hmT" secondAttribute="bottom" constant="15" id="tnd-Rc-GG9"/>
                                             <constraint firstItem="BW4-yM-ZM2" firstAttribute="leading" secondItem="ZXl-Y0-mZ7" secondAttribute="leading" constant="10" id="tvD-wg-q66"/>
                                         </constraints>
                                     </view>

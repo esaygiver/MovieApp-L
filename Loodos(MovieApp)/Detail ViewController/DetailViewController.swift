@@ -141,6 +141,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let selectedCastID = cast[indexPath.row].id
         let url = "\(getURL(on: .castTMDBPage))\(selectedCastID ?? 12345)"
         let vc = SFSafariViewController(url: URL(string: url)!)
+        vc.modalPresentationStyle = .popover
+        vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)
     }
 }

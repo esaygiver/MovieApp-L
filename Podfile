@@ -10,7 +10,6 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Analytics'
 pod 'Moya', '~> 14.0'
-pod 'RealmSwift'
 pod "Connectivity"
 pod 'Kingfisher', '~> 6.0'
 

@@ -12,7 +12,6 @@ enum SearchListState {
     case loading, loaded, empty
 }
 
-
 class SearchViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var collectionView: UICollectionView!
@@ -53,7 +52,6 @@ class SearchViewController: UIViewController {
     func setupDelegations() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
     }
@@ -141,7 +139,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let selectedMovieInSearchVC = movies[indexPath.row]
         let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
         detailViewController.selectedMovie = selectedMovieInSearchVC
-        self.show(detailViewController, sender: self)
+        detailViewController.modalTransitionStyle = .flipHorizontal
+        self.present(detailViewController, animated: true)
+//        self.show(detailViewController, sender: self)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
