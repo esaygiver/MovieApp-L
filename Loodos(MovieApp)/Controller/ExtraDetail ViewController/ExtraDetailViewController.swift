@@ -34,7 +34,8 @@ class ExtraDetailViewController: UIViewController {
 //MARK: - Review and Trailer Request Part
 extension ExtraDetailViewController {
     func getReviews() {
-        networkManager.fetchReviews(movieID: self.selectedMovieDetail.id ?? 399566) { reviews in
+        networkManager.fetchReviews(movieID: self.selectedMovieDetail.id ?? 399566) { [weak self] reviews in
+            guard let self = self else { return }
             self.review = reviews
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -42,7 +43,8 @@ extension ExtraDetailViewController {
         }
     }
     func getVideo() {
-        networkManager.fetchVideo(movieID: self.selectedMovieDetail.id ?? 399566) { videos in
+        networkManager.fetchVideo(movieID: self.selectedMovieDetail.id ?? 399566) { [weak self] videos in
+            guard let self = self else { return }
             self.trailer = videos
             if let url = URL(string: "https://www.youtube.com/watch?v=\(self.trailer.first?.key ?? "" )") {
                 DispatchQueue.main.async {

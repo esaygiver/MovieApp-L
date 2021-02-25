@@ -16,8 +16,8 @@ class SearchViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet weak var movieListActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var emptyStateView: UIView!
+    @IBOutlet var movieListActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var emptyStateView: UIView!
     
     var movies = [Movie]()
     var popularMovies = [Movie]()
@@ -63,14 +63,15 @@ extension SearchViewController {
     func fetchMovies(query: String) {
         self.screenState = .loading
         networkManager.searchMovies(query: query) { [weak self] (results) in
+            guard let self = self else { return }
             if results.isEmpty {
-                self?.screenState = .empty
+                self.screenState = .empty
             } else {
-                self?.movies = results
-                self?.screenState = .loaded
+                self.movies = results
+                self.screenState = .loaded
             }
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
+                self.collectionView.reloadData()
             }
         }
     }
@@ -78,16 +79,17 @@ extension SearchViewController {
     func fetchPopularMovies() {
         self.screenState = .loading
         networkManager.fetchPopularMovies { [weak self] (results) in
+            guard let self = self else { return }
             if results.isEmpty {
-                self?.screenState = .empty
+                self.screenState = .empty
             } else {
-                self?.movies = results
-                self?.popularMovies = results
-                self?.screenState = .loaded
+                self.movies = results
+                self.popularMovies = results
+                self.screenState = .loaded
             }
             
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
+                self.collectionView.reloadData()
             }
         }
     }

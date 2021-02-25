@@ -109,10 +109,11 @@ extension DetailViewController {
 extension DetailViewController {
     func getCast() {
         networkManager.fetchCast(movieID: self.selectedMovie.id ?? 399566) { [weak self] casts in
-            self?.cast = casts
+            guard let self = self else { return }
+            self.cast = casts
             DispatchQueue.main.async {
-                self?.castCollectionViewHeightConstraint.constant = 170
-                self?.collectionView.reloadData()
+                self.castCollectionViewHeightConstraint.constant = 170
+                self.collectionView.reloadData()
             }
         }
     }

@@ -13,8 +13,8 @@ import FirebaseDatabase
 class PreLoadScreenViewController: UIViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet var loadingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var companyNameLabel: UILabel!
     
     let connectivity = Connectivity()
     let ref = Database.database().reference()
@@ -67,7 +67,8 @@ class PreLoadScreenViewController: UIViewController {
     }
     
     func showCompanyName() {
-        ref.child("companyTitle").observeSingleEvent(of: .value) { (snapshot) in
+        ref.child("companyTitle").observeSingleEvent(of: .value) { [weak self] (snapshot) in
+            guard let self = self else { return }
             self.loadingActivityIndicator.isHidden = true
             let companyTitle = snapshot.value as? String
             self.companyNameLabel.text = companyTitle
